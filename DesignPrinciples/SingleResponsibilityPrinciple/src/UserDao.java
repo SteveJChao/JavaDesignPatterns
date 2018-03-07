@@ -72,7 +72,7 @@ public class UserDao {
     }
 
     //添加新用户
-    public boolean addUser(User user) {
+    public void addUser(User user) {
         boolean flag = false;
         try {
             String sql = "insert into user(username, pass, role) values (?,?,?)";
@@ -83,7 +83,7 @@ public class UserDao {
             preparedStatement.setInt(3, user.getRole());
 
             preparedStatement.execute();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
